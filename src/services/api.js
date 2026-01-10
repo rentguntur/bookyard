@@ -1,14 +1,9 @@
 // src/services/api.js
 import axios from 'axios';
 
-// Use relative path for local development (which uses Vite proxy)
-// For production, if the same-origin proxy fails, we can fall back to the absolute URL
-// However, the Netlify rewrite rule should handle the /api path.
-// To be safe, we'll keep it as relative '' to rely on the proxy/rewrite.
-// But if you prefer forcing the URL in production to avoid rewrite issues:
-const API_BASE_URL = import.meta.env.PROD
-    ? 'https://book-yard.onrender.com'
-    : '';
+// Use relative path to leverage the Netlify proxy (defined in netlify.toml)
+// This avoids CORS issues by making requests to the same origin coverage
+const API_BASE_URL = '';
 
 // Create axios instance with default config
 const apiClient = axios.create({

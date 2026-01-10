@@ -7,6 +7,7 @@
   to = "/index.html"
   status = 200
 
+# Proxy /api requests to the Render backend to avoid CORS issues
 [[redirects]]
   from = "/api/*"
   to = "https://book-yard.onrender.com/api/:splat"
